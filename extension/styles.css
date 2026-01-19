@@ -1,0 +1,471 @@
+/* Reset & Container */
+#ai-summary-overlay {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 400px;
+    max-height: 85vh;
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border-radius: 16px;
+    z-index: 2147483647;
+    font-family: 'Verdana', 'Segoe UI', sans-serif;
+    font-size: 16px;
+    color: #1a1a1a;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 2px solid #2c3e50;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(120%); }
+    to { transform: translateX(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Header */
+.ai-summary-header {
+    background: #2c3e50;
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #ffffff;
+}
+
+.ai-summary-header span {
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+}
+
+#ai-summary-close {
+    background: transparent;
+    border: 2px solid transparent;
+    color: #ffffff;
+    font-size: 28px;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0 4px;
+    border-radius: 4px;
+}
+
+#ai-summary-close:focus {
+    border-color: #ffffff;
+    outline: none;
+}
+
+/* Body */
+.ai-summary-body {
+    padding: 20px;
+    overflow-y: auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.ai-loading, .ai-error {
+    text-align: center;
+    padding: 40px 0;
+    font-style: italic;
+    color: #555;
+}
+
+.ai-error {
+    color: #d32f2f;
+    font-style: normal;
+}
+
+/* Summary Section */
+.ai-summary-section h2 {
+    font-size: 20px;
+    margin: 0 0 16px 0;
+    color: #2c3e50;
+}
+
+.ai-summary-section p {
+    line-height: 1.6;
+    margin-bottom: 24px;
+    color: #333;
+}
+
+/* Action Buttons (Summary View) */
+.ai-action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.ai-action-btn {
+    padding: 16px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: transform 0.1s, box-shadow 0.2s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.ai-action-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.ai-action-btn:active {
+    transform: translateY(0);
+}
+
+.ai-action-btn.primary {
+    background: #2c3e50;
+    color: white;
+}
+
+.ai-action-btn.secondary {
+    background: #f8f9fa;
+    border: 2px solid #2c3e50;
+    color: #2c3e50;
+}
+
+.ai-action-btn .icon {
+    font-size: 20px;
+}
+
+/* View Header (Back Button) */
+.ai-view-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.ai-back-btn {
+    background: none;
+    border: none;
+    color: #007bff;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 600;
+    padding: 5px 0;
+}
+
+.ai-back-btn:hover {
+    text-decoration: underline;
+}
+
+.ai-view-title {
+    font-weight: 700;
+    font-size: 18px;
+    color: #2c3e50;
+}
+
+/* Wizard */
+.ai-wizard {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid #ddd;
+    text-align: center;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ai-wizard-progress {
+    font-size: 14px;
+    font-weight: bold;
+    color: #666;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.ai-wizard-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.ai-wizard-content p {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.5;
+    margin: 0;
+    color: #222;
+}
+
+.ai-wizard-controls {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.ai-wizard-controls button {
+    padding: 12px 20px;
+    border: none;
+    background: #007bff;
+    color: white;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    flex: 1;
+}
+
+.ai-wizard-controls button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.ai-wizard-controls button:hover:not(:disabled) {
+    background: #0056b3;
+}
+
+/* Simple Text */
+.ai-simple-text {
+    line-height: 1.8;
+    font-size: 16px;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 5px solid #2c3e50;
+    color: #333;
+}
+
+
+/* --- Phantom Demo Styles --- */
+
+/* Peripheral Dimming */
+.phantom-dim-top, .phantom-dim-bottom {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    height: 30vh;
+    background: black;
+    opacity: 0.8;
+    pointer-events: none;
+    z-index: 2147483646; /* Just below overlay */
+    transition: opacity 1s ease;
+}
+
+.phantom-dim-top {
+    top: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0.6));
+}
+
+.phantom-dim-bottom {
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0.6));
+}
+
+.phantom-dim-light {
+    opacity: 0.4 !important;
+}
+
+/* AI Summary Replacement */
+.phantom-summary-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    max-width: 800px;
+    padding: 40px;
+    background: white;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    border-radius: 20px;
+    z-index: 2147483645;
+    font-family: system-ui, -apple-system, sans-serif;
+    text-align: center;
+}
+
+.phantom-summary-text {
+    font-size: 24px;
+    line-height: 1.6;
+    color: #333;
+    font-weight: 500;
+}
+
+.phantom-summary-label {
+    display: block;
+    margin-bottom: 20px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #666;
+    font-weight: bold;
+}
+
+/* Intervention (Micro-break) */
+.phantom-intervention-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(200, 220, 200, 0.95); /* Soft Green/Grey */
+    z-index: 2147483648; /* Top most */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 2s ease;
+}
+
+.phantom-intervention-popup {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    text-align: center;
+    max-width: 500px;
+}
+
+.phantom-intervention-popup h2 {
+    font-size: 28px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.phantom-intervention-popup p {
+    font-size: 18px;
+    color: #555;
+}
+
+/* Context Card (Return) */
+.phantom-context-card {
+    position: fixed;
+    bottom: 35%; /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 50px;
+    font-size: 16px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    z-index: 2147483648;
+    cursor: pointer;
+    animation: slideUp 0.5s ease;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+@keyframes slideUp {
+    from { transform: translate(-50%, 20px); opacity: 0; }
+    to { transform: translate(-50%, 0); opacity: 1; }
+}
+
+.phantom-context-close {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+/* Reading Ruler */
+.phantom-reading-ruler {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    height: 32px; /* Height of a typical line + padding */
+    background: rgba(255, 230, 0, 0.15);
+    border-top: 1px solid rgba(255, 200, 0, 0.3);
+    border-bottom: 1px solid rgba(255, 200, 0, 0.3);
+    pointer-events: none;
+    z-index: 2147483640;
+    transition: top 0.1s ease-out;
+    mix-blend-mode: multiply;
+}
+
+/* Bionic Reading */
+.phantom-bionic-word {
+    /* No specific style needed, just bold tag */
+}
+
+/* --- New Focus Mode Styles --- */
+
+/* Spotlight Effect: Dim everything when demo is active */
+body.phantom-focus-active {
+    transition: background-color 1s ease;
+    background-color: #111 !important; /* Dark background */
+}
+
+/* Dim all content except focused */
+body.phantom-focus-active #content, 
+body.phantom-focus-active #mw-content-text,
+body.phantom-focus-active .mw-body-content {
+    transition: opacity 0.5s ease;
+}
+
+/* Aggressive dimming for any element that is NOT the focused paragraph */
+body.phantom-focus-active p,
+body.phantom-focus-active h1,
+body.phantom-focus-active h2,
+body.phantom-focus-active h3,
+body.phantom-focus-active img,
+body.phantom-focus-active li,
+body.phantom-focus-active table {
+    filter: brightness(0.2) blur(1px);
+    opacity: 0.4;
+    transition: all 0.5s ease;
+}
+
+/* The Focused element pops out */
+body.phantom-focus-active .phantom-focused {
+    filter: brightness(1) blur(0) !important;
+    opacity: 1 !important;
+    transform: scale(1.02);
+    z-index: 1000;
+    background: white !important;
+    box-shadow: 0 10px 50px rgba(0,0,0,0.5);
+    border-radius: 12px;
+    padding: 20px !important;
+    margin: 20px -10px !important;
+    position: relative;
+}
+
+.phantom-paragraph-summary {
+    font-size: 1.25em;
+    line-height: 1.5;
+    color: #2c3e50;
+    font-weight: 500;
+    padding: 15px;
+    background: #f0f7ff;
+    border-left: 5px solid #007bff;
+    border-radius: 4px;
+    animation: fadeIn 0.5s ease;
+}
+
+.phantom-ai-icon {
+    display: inline-block;
+    margin-right: 8px;
+    font-size: 1.2em;
+}
