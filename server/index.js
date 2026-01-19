@@ -14,7 +14,11 @@ Return a JSON object with the following structure (do not wrap in markdown code 
 const app = express();
 const port = process.env.PORT || 3020;
 
-app.use(cors());
+app.use(cors({
+    origin: '*', 
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type']
+}));
 app.use(express.json({ limit: '10mb' })); // Increased limit for large page content
 
 const openai = new OpenAI({
